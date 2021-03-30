@@ -1,15 +1,16 @@
-let ul = document.querySelector('ul');
-got.houses.forEach((elm)=>{
-    let li = document.createElement('li');
-    elm.people.forEach((peo)=> {
-        let img = document.createElement('img');
-        img.src = peo.image;
-        let name = document.createElement('span');
-        name.innerText = peo.name;
-        let discription = document.createElement('h2');
-        discription.innerText = peo.description;
-        let button = document.createElement('button');
-
-        li.append(img,name,discription,button);
-    })    
+let ul = document.querySelector('.innercent');
+let peopleAll = got.houses.reduce((acc,cv)=>{
+    acc = acc.concat(cv.people);
+    return acc;
+},[]);
+let allpeople = peopleAll.map((person)=> {
+    return `<li>
+    <div class="spanned">
+      <img src=${person.image} alt=${person.name}>
+      <h2>${person.name}</h2>
+    </div>
+    <p>${person.description}</p>
+    <a href=${person.wikiLink}>Learn More</a>
+  </li>`;
 });
+ul.innerHTML = allpeople.join("");
