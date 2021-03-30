@@ -19,3 +19,51 @@ h1,
 h2 {
   text-align: center;
 }
+.inner {
+  background-color: rgb(244,245,249);
+  padding: 20px;
+}
+header {
+  text-align: center;
+  background-color: #4075D5;
+  
+}
+h1 {
+  color: white;
+  font-size: 28px;
+  padding: 20px;
+}
+.innercent {  
+  display:flex ; 
+  text-align: center;
+  flex-wrap: wrap;
+}
+.innercent li {
+  width: 28%;
+  background-color: white;
+  padding: 30px; 
+  text-decoration: none;
+  margin: 10px;
+}
+.spanned {
+  display: inline-block;
+}
+.spanned img{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.spanned h2{
+  display: inline-block;
+  font-size: 19px;
+  color: black;
+}
+a { 
+  width: 90%;
+  font-size: 16px;
+  padding: 5px 100px;
+  background-color: grey;
+  color: black;
+}
