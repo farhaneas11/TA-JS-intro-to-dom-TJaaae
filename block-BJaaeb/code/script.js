@@ -4,7 +4,14 @@ Write a function named `createInputElm` that accepts two parameter (label and `t
 default value to be "text" and return the input element inside label. (create it using `createElement`)
 
 */
-let createInputElm = document.createElement('label[input type = "text"]');
+function createInputElm(labelMessage  , type = "text"){
+let label = document.createElement('label');
+let input = document.createElement('input');
+input.type = type;
+label.innerText = labelMessage;
+label.append(input);
+return label;
+}
 // Your code goes here
 
 // TEST
@@ -14,7 +21,10 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 // 2. Do the same thing as above using string literal like `<h1>Hello</h1>`
 
 // Your code goes here
-
+function createInputElm(labelMessage , type = "text"){
+  let htlm = `<label>${labelMessage} <input type=${type}></label>`;
+  return htlm;
+}
 // TEST
 createInputElm('Your name'); //<label>Your name: <input type="text"></label>
 createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></label>
@@ -22,7 +32,10 @@ createInputElm('Your age', 'number'); //<label>Your age: <input type="number"></
 // 3. Create a function named `createList` that accept and array of data like ['Mango', 'Apple', 'Banana'] and returns
 // the html for the link like <ul> <li>Mango</li>  <li>Apple</li>  <li>Banana</li> </ul>
 // Your code goes here
-
+function createList(data = []){
+  let html = `<ul>${data.map(elm =>`<li>${elm}</li>`).join("")} </ul>`;
+    return html;
+}
 // TEST
 createList(['ALABAMA', 'ALASKA', 'HAWAII', 'KENTUCKY']);
 createList(['Afghanistan', 'Antarctica', 'Congo', 'Estonia']);
@@ -38,9 +51,17 @@ createList(['Afghanistan', 'Antarctica', 'Congo', 'Estonia']);
   </li>
 </ul>
 */
-
+function createTodoList(data = []){
+  let html = `<ul>${data.map(elm =>`<li>
+  <p>${elm.name}</p>
+  <input type="checkbox"${elm.isDone ? "checked":""}name=""  id="">
+  <span>X</span>
+  </li>`)
+  .join("")}</ul>`;
+    return html;
+}
 // Your code goes here
-
+/*
 // TEST
 createTodoList([
   { name: 'Learn DOM', isDone: false },
@@ -51,3 +72,4 @@ createTodoList([
   { name: 'Learn React', isDone: true },
   { name: 'Learn JS', isDone: true },
 ]);
+*/
